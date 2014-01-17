@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>微店</title>
+    <meta charset=utf-8>
+    <meta content="width=640, target-densitydpi=320, maximum-scale=1.0, minimum-scale=0.1, user-scalable=no" name="viewport" />
+    <!--@tokenHeadStart-->
+    <script type="text/javascript" src="js/viewport.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+</head>
+<body class="bodyLoading">
+
+<div class="comHeader"></div>
+
+<div class="wrapper {$name$}">
+</div>
+
+<a href="javascript:void(0);" class="cartIco">
+    <img src="images/cartIco.png"/>
+</a>
+
+<!--@tokenFooterStart-->
+<script type="text/javascript" src="js/lib/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/require.js"></script>
+<!--@tokenFooterEnd-->
+
+<script type="text/javascript">
+    require(['js/app.js?vv=123'],function(){
+        require(['app/{$name$}'],function({$name$}){
+            {$name$}.bind();
+        });
+    });
+</script>
+
+</body>
+</html>

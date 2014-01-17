@@ -1,0 +1,15 @@
+<div class="eContent">
+    <div class="tagB"><img src="/activity/resources/newSign/images/alert.png?v=123" class="middle tipImg"> <%= md['content']%></div>
+    <% if(md['buttons']){ %>
+    <div class="tagC">
+        <%for(var i=0;i<md['buttons'].length;i++){%>
+        <button class="box dialogButton <%= md['buttons'][i][1]%>">
+            <div></div>
+            <div><%= md['buttons'][i][0]%></div>
+            <div></div>
+        </button>
+        <%}%>
+    </div>
+    <% }%>
+</div>
+<a href="#" class="close J-dialogClose"></a>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8"/>
+    <title>HTML5二维码生成器|二维码插件</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+</head>
+<body>
+
+<div class="wrapper" id="wrapper">
+    <div class="canvasDiv" id="canvasDiv"></div>
+
+    <div class="formDIv box">
+        <input type="text" class="inputText inputUrl boxFlex" id="inputUrl" placeholder="上面为当前页面地址二维码" style="display: block"/>
+        <button class="m-button orangeButton" id="doCreate" style="display: block;">生 成</button>
+    </div>
+
+    <div class="noticeDiv">
+        <button  id="changeSize" class="m-button">放 大</button>
+        <button  id="download" class="m-button">下 载</button>
+        <button  id="rightMenu" class="m-button">取消右键</button>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/lib/zepto.min.js"></script>
+<script type="text/javascript" data-main="js/app" src="js/require.js"></script>
+
+</body>
+</html>

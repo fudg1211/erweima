@@ -1,0 +1,88 @@
+<project name="erweima" basedir="../">
+    <tstamp>
+        <format property="date" pattern="yyyy/MM/dd"/>
+        <format property="time" pattern="hh:mm aa"/>
+        <format property="dateTime" pattern="yyyMMddHHmmss"/>
+    </tstamp>
+
+    <property file="${basedir}/build/build.properties"/>
+
+
+    <target name="build">
+        <delete dir="${dir.output}"/>
+        <copy todir="${dir.output}/js">
+            <fileset dir="${dir.js}">
+                <include name="*js"/>
+            </fileset>
+        </copy>
+        <copy todir="${dir.output}/js/lib">
+            <fileset dir="${dir.js}/lib">
+                <include name="zepto.min.js"/>
+                <include name="jquery.qrcode.js"/>
+                <include name="qrcode.js"/>
+            </fileset>
+        </copy>
+        <copy todir="${dir.output}">
+            <fileset dir="${basedir}">
+                <exclude name="js/"/>
+                <exclude name="build/"/>
+                <exclude name="output/"/>
+                <exclude name="css/"/>
+                <exclude name="zip/"/>
+            </fileset>
+        </copy>
+        <copy todir="${dir.output}/css">
+            <fileset dir="${basedir}/css">
+                <include name="content.css"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+    <target name="test" depends="build" description="构建测试版本">
+        <antcall target="optimize">
+            <param name="optimize.type" value="optimize=none"/>
+        </antcall>
+
+        <antcall target="zip">
+            <param name="build.name" value="erweima-2"/>
+        </antcall>
+    </target>
+
+
+    <target name="zip">
+        <delete dir="${dir.zip}"/>
+        <mkdir dir="${dir.zip}"/>
+        <zip basedir="${dir.output}" destfile="${dir.zip}/${build.name}.zip"/>
+    </target>
+
+
+    <target name="optimize">
+        <java classname="org.mozilla.javascript.tools.shell.Main">
+            <classpath>
+                <pathelement location="${dir.reuqirejs}/rhino.jar"/>
+                <pathelement location="${dir.reuqirejs}/closure.jar"/>
+            </classpath>
+            <arg value="${dir.reuqirejs}/r.js"/>
+            <arg value="-o"/>
+            <arg value="${dir.reuqirejs}/build.js"/>
+            <arg value="${optimize.type}"/>
+        </java>
+
+
+        <java classname="org.mozilla.javascript.tools.shell.Main">
+            <classpath>
+                <pathelement location="${dir.reuqirejs}/rhino.jar"/>
+                <pathelement location="${dir.reuqirejs}/closure.jar"/>
+            </classpath>
+            <arg value="${dir.reuqirejs}/r.js"/>
+            <arg value="-o"/>
+            <arg value="${dir.reuqirejs}/build.css"/>
+            <arg value="optimizeCss=standard"/>
+        </java>
+
+    </target>
+
+
+
+</project>

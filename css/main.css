@@ -1,0 +1,40 @@
+.canvasDiv canvas{
+	border: 1px solid #fff;
+	box-shadow: 0 0 30px;
+	border-radius: 1px;
+}
+
+.canvasDiv{
+	padding:30px 0;
+	text-align: center;
+	min-height: 250px;
+}
+
+
+.formDiv{
+	text-align: center;
+	padding:5px 0;
+}
+
+.noticeDiv{
+	font-size: 11px;
+	color: #363232;
+	margin-top: 7px;
+}
+
+.big{
+	width: 500px;
+}
+
+.big .noticeDiv{
+	padding-left: 37px;
+}
+
+.notice{
+	display: none;
+}
+
+.noticeDiv .m-button {
+	font-size: 14px;
+	padding: 4px 6px;
+}

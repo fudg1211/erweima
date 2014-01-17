@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+
+	"background": {
+		"page": "background.html"
+	},
+
+
+	"name": "HTML5高清二维码生成器",
+	"description": "url，中文短信，文字、电话号码...一秒 到手机，精准简洁易用的二维码生成器，提供离线生成功能，使用方便，欢迎使用,新版有重大功能更新，提供放大和离线下载功能",
+	"version": "3.1.0",
+
+	"permissions": [ "tabs", "http://*/*", "https://*/*", "contextMenus"],
+
+
+	"browser_action": {
+		"default_icon": "images/icons/icon-48.png",
+		"default_popup": "popup.html",
+		"default_title": "html5高清二维码生成器"
+	},
+
+	"content_scripts": [ {
+		"js": [ "js/content.js" ],
+		"matches": [ "*://*/*" ],
+		"run_at": "document_end"
+	} ],
+
+	"icons": {
+		"16": "images/icons/icon-16.png",
+		"48": "images/icons/icon-48.png",
+		"128": "images/icons/icon-128.png"
+	},
+
+	"web_accessible_resources": [ "css/content.css"]
+
+}

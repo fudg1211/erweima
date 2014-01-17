@@ -1,0 +1,16 @@
+<div class="dHeader"></div>
+<div class="dContent">
+    <div class="tagB"><%= md['content']%></div>
+    <% if(md['buttons']){ %>
+    <div class="tagC">
+        <%for(var i=0;i<md['buttons'].length;i++){%>
+        <button class="box dialogButton <%= md['buttons'][i][1]%>">
+            <div></div>
+            <div><%= md['buttons'][i][0]%></div>
+            <div></div>
+        </button>
+        <%}%>
+    </div>
+    <% }%>
+</div>
+<a href="#" class="close J-dialogClose"></a>
