@@ -22,7 +22,8 @@
 	"content_scripts": [ {
 		"js": [ "js/content.js" ],
 		"matches": [ "*://*/*" ],
-		"run_at": "document_end"
+		"run_at": "document_end",
+		"all_frames":true
 	} ],
 
 	"icons": {
